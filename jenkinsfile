@@ -3,14 +3,14 @@ pipeline {
     stages{
         stage('checkout'){
             steps{
-                // deleteDir()
-                // git 'https://github.com/bharath0080/simple-java-maven-app.git'
+                script{
+                    checkout
+                }
             }
         }
         stage('build'){
-            steps{
-                sh 'mvn clean verify’
-              }
+            steps {
+                sh 'mvn -B -DskipTests clean package' 
             }
         }
     }
