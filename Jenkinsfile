@@ -9,12 +9,13 @@ pipeline {
         stage('checkout'){
             steps {
                 dir('subDir') {
-                    checkout scm
+                    checkout scm --progress
                 }   
             }
         }
         stage('build'){
             steps {
+                echo '>>>>> maven build <<<<<<<<<<<<'
                 sh 'mvn clean package --debug' 
             }
         }
