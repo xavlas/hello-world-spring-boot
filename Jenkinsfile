@@ -20,5 +20,10 @@ pipeline {
                 sh 'mvn clean package -DsourceRepositories=central::default::https://repo.maven.apache.org/maven2' 
             }
         }
+        stage('docker'){
+            steps {
+                 sh 'docker build .' 
+            }
+        }
     }
 }
