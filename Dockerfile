@@ -1,6 +1,4 @@
-FROM java
-ADD ./target/myproject-0.0.1-SNAPSHOT.jar /myproject-0.0.1-SNAPSHOT.jar
-ADD ./run.sh /run.sh
-RUN chmod a+x /run.sh
-EXPOSE 8080:8080
-CMD /run.sh
+FROM openjdk:11
+copy target/myproject-0.0.1-SNAPSHOT.jar myproject-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","myproject-0.0.1-SNAPSHOT.jar"]
+EXPOSE 8080
