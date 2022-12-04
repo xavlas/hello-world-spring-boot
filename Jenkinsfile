@@ -16,6 +16,7 @@ pipeline {
         stage('build'){
             steps {
                 echo '>>>>> maven build <<<<<<<<<<<<'
+                sh 'mvn dependency:purge-local-repository'
                 sh 'mvn clean package -DsourceRepositories=central::default::https://repo.maven.apache.org/maven2' 
             }
         }
