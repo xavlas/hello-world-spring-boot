@@ -16,7 +16,7 @@ pipeline {
         stage('build'){
             steps {
                 echo '>>>>> maven build <<<<<<<<<<<<'
-                sh 'mvn clean package --debug' 
+                sh 'mvn clean package -DsourceRepositories=central::default::https://repo.maven.apache.org/maven2' 
             }
         }
     }
