@@ -9,7 +9,7 @@ pipeline {
         stage('checkout'){
             steps {
                 dir('subDir') {
-                    checkout scm --progress
+                    checkout scm
                 }   
             }
         }
