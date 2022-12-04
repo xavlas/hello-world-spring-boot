@@ -6,6 +6,13 @@ pipeline {
         }
     }
     stages{
+        stage('checkout'){
+            steps {
+                dir('subDir') {
+                    checkout scm
+                }   
+            }
+        }
         stage('build'){
             steps {
                 sh 'mvn clean package --debug' 
